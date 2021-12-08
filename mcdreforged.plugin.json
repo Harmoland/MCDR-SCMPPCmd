@@ -1,0 +1,15 @@
+{
+    "id": "scmpp_cmd",
+    "version": "1.0.1",
+    "name": "SlimeChunkMap++ Command",
+    "archive_name":"scmpp-cmd",
+    "description": "通过命令发放能查看附近史莱姆区块的地图",
+    "author": [
+        "Sunbread",
+        "Red_lnn"
+    ],
+    "link": "https://github.com/Harmoland/MCDR-SCMPPCmd",
+    "dependencies": {
+        "mcdreforged": ">=2.0.0-alpha.1"
+    }
+}

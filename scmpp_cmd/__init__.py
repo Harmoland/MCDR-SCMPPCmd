@@ -11,8 +11,8 @@ from mcdreforged.api.decorator import new_thread
 from mcdreforged.api.rtext import RColor, RText
 from mcdreforged.plugin.server_interface import PluginServerInterface
 
+json_path: str
 cooldown = timedelta(days=3)
-json_path = os.path.join(data_folder, 'cooldowns.json')
 
 
 @new_thread('scmpp_cmd')
@@ -44,8 +44,8 @@ def check_cd(src) -> timedelta:
 
 
 def on_load(server: PluginServerInterface, prev) -> None:
-    global data_folder
-    data_folder = server.get_data_folder()
+    global json_path
+    json_path = os.path.join(server.get_data_folder(), 'cooldowns.json')
     if not os.path.exists(json_path):
         with open(json_path, 'w') as fp:
             fp.write("{}")

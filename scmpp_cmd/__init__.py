@@ -37,7 +37,7 @@ def mark_cd(src) -> None:
 def check_cd(src) -> timedelta:
     with open(json_path, 'r') as fp:
         data = json.load(fp)
-    if data[src.player] is None:
+    if src.player not in data.keys():
         return timedelta.min
     else:
         return cooldown - (datetime.now() - datetime.fromtimestamp(data[src.player]))

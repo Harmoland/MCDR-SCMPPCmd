@@ -19,7 +19,19 @@ cooldown = timedelta(days=3)
 def getscm(src):
     remaining_cd = check_cd(src)
     if remaining_cd >= timedelta(0):
-        src.reply(RText(f'冷却尚未结束，还有 {remaining_cd.total_seconds()} 秒', color=RColor.red))
+        m, s = divmod(remaining_cd.total_seconds(), 60)
+        h, m = divmod(m, 60)
+        d, h = divmod(h, 60)
+        src.reply(
+            RText(
+                '冷却中... 还有'
+                f'{" %d天" % d if d > 0 else ""}'
+                f'{" %d小时" % h if h > 0 else ""}'
+                f'{" %d分钟" % m if m > 0 else ""}'
+                f'{" %d秒" % s}',
+                color=RColor.red,
+            )
+        )
         return
     mark_cd(src)
     src.get_server().execute('give ' + src.player + ' minecraft:filled_map{map:-114514}')

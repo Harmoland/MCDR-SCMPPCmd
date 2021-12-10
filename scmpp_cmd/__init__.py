@@ -5,7 +5,7 @@ import os
 import time
 from datetime import datetime, timedelta
 
-import hjson as json
+import json
 from mcdreforged.api.command import Literal
 from mcdreforged.api.decorator import new_thread
 from mcdreforged.api.rtext import RColor, RText
